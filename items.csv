@@ -1,0 +1,12 @@
+itemNumber,itemName,itemDescription,itemType,itemDamage,itemDefense,itemDurability,itemEffect,itemEffectType,itemState
+0,Nothing,Theres nothing in your hands,base,baseDamage,baseDefense,inf,0,,startingItem
+1,Gold,Valuable Gold,money,,,,,,world
+2,Plain Clothes,Just the stuff you wear,armor,0,0,inf,0,,startingItem
+3,Dagger,Small Dagger use to stab,weapon,1,1,100,0,,world
+4,Leather Armor,Slighty Better Armor than nothing,armor,0,1,50,0,,world
+5,Health Potion,A potion of healing,potion,-10,0,1,10,health,world
+6,something,test,test,1,1,1,1,1,1
+7,goblinDagger,,,,,,,,
+8,goblinArmor,,,,,,,,
+9,banditSword,,,,,,,,
+10,banditArmor,,,,,,,,

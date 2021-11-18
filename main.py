@@ -1,4 +1,4 @@
-    import time
+import time
 import charCreate
 
 gold = 0
@@ -16,11 +16,11 @@ def Wormroom():
 print('After remembering yourself you look around the cave and realize there are two paths you could choose.')
 direction = 'still'
 while direction != 'cont':
-  direction = input('Would you like to go left(l) or right(r) ')
-  if direction=="l":
+  direction = str.lower(input('Would you like to go left(l) or right(r) '))
+  if direction=="l" or "left":
     Wormroom()
     direction = 'cont'
-  elif direction=='r':
+  elif direction=='r' or "right":
     print('Right')
     direction = 'cont'
   else:

@@ -1,4 +1,7 @@
 import time
+import pandas as pd
+import numpy as np
+attributes = pd.read_csv(character.csv)
 #This runs at the start of the game to create a char. build...
 delay = float(0.5)
 #Strength
@@ -12,12 +15,12 @@ print('You look down at yourself and think "Oh I must be a..."')
 time.sleep(delay)
 stats = 'choosing'
 while stats == 'choosing':
-  race = str.lower(input('Choose your race: Elf, Dwarf, or Human: '))#we should add more races
+  race = str.lower(input('Choose your character: Elf, Dwarf, Human : '))#we should add more races
 #weapon select(NYI) and attribute assignment (attributes out of 10)
   if race == 'human':
-    strenght = 6
-    dexterity = 6
-    vitality = 5
+    #strenght = 6
+    #dexterity = 6
+    #vitality = 5
     stats = 'chosen'
   elif race == 'elf':
     strength = 4

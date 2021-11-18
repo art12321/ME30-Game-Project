@@ -4,4 +4,4 @@ charNumber,charName,charDescription,charType,charDamage,charDefense,charDurabili
 2,weird dog,looks like a weird dog,npc,100,100,100,0,,world,dogbones
 3,Goblin,GoblinDescription,enemy,10,2,10,0,,world,"[goblinDagger,goblinArmor]"
 4,bandit,banditdescription,enemy,15,4,15,0,,world,"[banditSword,banditArmor]"
-5,BigBadBear,looks like a big bear that’s bad,boss,25,8,30,0,,world,"[[gold,9999999],personOfSaving]"
+5,BigBadBear,looks like a big bear thats bad,boss,25,8,30,0,,world,"[[gold,9999999],personOfSaving]"

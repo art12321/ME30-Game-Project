@@ -2,3 +2,4 @@
 #
 #list of times in game and effects
 #weapons, potions....
+#see items.csv

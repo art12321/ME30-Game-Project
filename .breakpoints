@@ -15,6 +15,20 @@
         "version": 97,
         "index": 21
       }
+    ],
+    "encountersystem.py": [
+      {
+        "id": "8883fff4-2d15-491b-bc76-b3802e1d20e8",
+        "line": 129,
+        "version": 4970,
+        "index": 4399
+      },
+      {
+        "id": "91cbed70-1c15-4d6f-ac1a-12eb6d8ca6eb",
+        "line": 129,
+        "version": 4970,
+        "index": 4399
+      }
     ]
   }
 }

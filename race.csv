@@ -1,4 +1,4 @@
-raceNumber,raceName,strength,Dexterity,Vitality
-0,human,6,6,5
-1,dwarf,7,3,7
-2,elf,4,8,6
+raceName,SDV
+human,665
+dwarf,737
+elf,486

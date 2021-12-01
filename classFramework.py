@@ -35,16 +35,16 @@ class position:
 
 class state:
   """current state of a charater and environment"""
-  def __init__(self, charType, health, attack, defense, speed, currentPos):
-    self.charType = charType
+  def __init__(self, health, attack, defense, speed, currentPos, goldValue):
     self.health = health
     self.attack = attack
     self.defense = defense
     self.speed = speed
     self.currentPos = currentPos
+    self.goldValue = goldValue
 
   def __str__(self):
-      return str(self.char) + " has " + str(self.health) + " health points " + str(self.attack) + " attack points " + str(self.defense) + " defense points " + str(self.speed) + " speed points " + " and is at position " + str(self.curPos)
+      return str(self.health) + " health points " + str(self.attack) + " attack points " + str(self.defense) + " defense points " + str(self.speed) + " speed points " + " is at position " + str(self.curPos) + " and has gold " + str(self.goldValue)
 
   def stateCompare(self, stateType):
     """This is a comparison tool for battles, compare speed"""
@@ -77,6 +77,7 @@ class battle:
 
   def attackdefend(self):
     """This is called by the fight function to do math for attack defend."""
+    
     #do math to get values
     return
 
@@ -101,7 +102,7 @@ class item:
     return
 
 
-class encounters:
+class encounterState:
   """Placehold for potential encounters class"""
   def __init__(self,enVal):
     self.enVal = enVal
@@ -130,12 +131,12 @@ playerStartPos_x = 0
 playerStartPos_y = 0
 playerPos = position(playerStartPos_x,playerStartPos_y)
 
-map1 = ([0,0,0,0,0,0,0,0,0,0,0], #does work because odd # of rows and columns
+map1 = ([0,0,0,0,0,0,0,0,B,0,0], #does work because odd # of rows and columns
         [0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,1,0,0,0,0,0],
+        [0,0,0,0,2,0,0,0,0,0,0],
+        [0,0,0,0,1,1,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0],

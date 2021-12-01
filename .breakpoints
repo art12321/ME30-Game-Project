@@ -1,5 +1,13 @@
 {
   "files": {
+    "charCreate.py": [
+      {
+        "id": "c0ab7240-7de9-497e-a1f1-2d048d6ba38b",
+        "line": 9,
+        "version": 3512,
+        "index": 150
+      }
+    ],
     "character.csv": [
       {
         "id": "68806989-c59a-4b32-a72e-cc0ee6cc2c0c",
@@ -20,14 +28,14 @@
       {
         "id": "8883fff4-2d15-491b-bc76-b3802e1d20e8",
         "line": 129,
-        "version": 4970,
-        "index": 4399
+        "version": 6049,
+        "index": 4411
       },
       {
         "id": "91cbed70-1c15-4d6f-ac1a-12eb6d8ca6eb",
         "line": 129,
-        "version": 4970,
-        "index": 4399
+        "version": 6049,
+        "index": 4411
       }
     ]
   }

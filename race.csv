@@ -1,4 +1,6 @@
-raceName,SDV
+raceName,StrengthDexterityVitality
 human,665
 dwarf,737
 elf,486
+goblin,333
+finalboss,999

@@ -5,19 +5,28 @@ delay = float(0.5)
 
 racefile = open('race.csv', 'r')
 raceing = csv.DictReader(racefile)
+weaponfile = open('weapons.csv', 'r')
+weaponing = csv.DictReader(weaponfile)
 raceList = []
 raceATT = []
-for col in raceing:
-    raceList.append(col['raceName'])
-    raceATT.append(col['SDV'])
-print(raceATT)
+weaponList = []
+weaponATT = []
 
-class race:
-  def __init__(self,stats):
-    self.str = str(stats)[0]
-    self.dex = str(stats)[1]
-    self.vit = str(stats)[2]
+#appending csv files to lists to compare for potential choices and get stats
+
+for col in raceing:
+  raceList.append(col['raceName'])
+  raceATT.append(col['StrengthDexterityVitality'])
+for col in weaponing:
+  weaponList.append(col['weaponName'])
+  weaponATT.append(col['stats'])
 #Todolist: Starting Weapons, Attribute assignment, make attributes leave this fuction
+
+
+#making string to show all potential choices for race
+raceList.remove('finalboss')
+raceString = ', '.join(raceList)
+
 
 print(
     'You wake up in a cave, head throbbing. You look up up to see a hole. You decide that must be how you got here. You stand up and realize you can\'t remember anything.'
@@ -27,9 +36,9 @@ print('You look down at yourself and think "Oh I must be a..."')
 time.sleep(delay)
 stats = ''
 while stats != 'chosen':
-    race = str.lower(input('Choose your character: Elf, Dwarf, Human : '))
+    race = str.lower(input('Choose your type, : '))
     if race in raceList:
-        #aattributes to player.csv
+        #aattributes to main to be in player class
         #starting weapon to player.csv
         stats = 'chosen'
     else:

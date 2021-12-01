@@ -13,7 +13,7 @@ def encounters(num):
       'You walk through the door to find a humongous worm on the other side waiting to devour you. It takes one look and screams and sliters away. You look around and spot 20 gold coins'
       )
       state = 1
-      return gold =+ 20
+      return #add gold to the class
   elif num == 2:
     print('room2')
   elif num == 3:
@@ -188,7 +188,7 @@ def MageRoom5_2():
     #Choice 1 - Initiate Combat
     print('You unsheathe your weapon and prepare yourself for a fight.')
     #Choice 2 - Bribe
-    print('You jingle a bag of coin in front of her, convincing her to let you past.')
+    print('You attempt to bribe your way past, convincing her to let you past.')
     #Outcome  
 
 def DemonRoom6_1():
@@ -216,15 +216,51 @@ def LavaRoom6_2():
     print('Strength check failed! You slip and burn yourself on the edge of the lava.)
     #Outcome  
 
+def WaterRoom7_1():
+  state = 'incomplete'
+  if state == 'incomplete':
+    #Description
+    print('You enter the room, filled with muddy water. Beneath the surface, you see a 50 foot catfish, who seems to be waiting for you to enter the water.')
+    #Event
+    #Choice 1 - Vitality Check
+    print('Vitality check success! You manage to hold your breath long enough to escape the room without harm.')
+    #Choice 2 - Bad End
+    print('Vitality check failed! You suffer take drowning damage before you manage to reach ashore.')
+    #Outcome
+
+def SnakeRoom7_2():
+  state = 'incomplete'
+  if state == 'incomplete':
+    #Description
+    print('You look into the room, and it is full of SNAKES! The top 10 most venomous snakes mixed together floor to ceiling. One senses you and slithers towards you. The rest all begin to look towards you.)
+    #Event
+    #Choice 1 - Dexterity Check
+    print('Dexteriry check success! You put them into a trance and they are all dancing. You can escape this time.')
+    #Choice 2 - Bad End
+    print('Dexterity check failed! The snakes bite you, and deals some damage.')
+    #Outcome
+
+def BounceRoom8_1():
+  state = 'incomplete'
+  if state == 'incomplete':
+    #Description
+    print('You step into the room and are launched head first into a wall.)
+    #Event
+    #Choice 1 - Vitality Check
+    print('Vitality check success! You put on a helmet and survived.')
+    #Choice 2 - Bad End
+    print('Vitality check failed! You hit your head. Ouch!')
+    #Outcome
+
 def BossRoom():
   state = 'incomplete'
   if state == 'incomplete':
     #Description
-    print('You enter the final room to face your sworn enemy: a giant rat. INCOMPLETE, NEED TO FINISH')
+    print('You enter the final room to face your sworn enemy: a giant rat!')
     #Event
     print('What would you like to do? 1. Initiate Combat, 2. Bribe Enemy. (40 Gold)')
     #Choice 1 - Initiate Combat
     print('You unsheathe your weapon and prepare yourself for the final battle.')
     #Choice 2 - Bribe
-    print('You jingle a bag of coin in front of her, convincing her to let you past.')
+    print('IDK.')
     #Outcome  

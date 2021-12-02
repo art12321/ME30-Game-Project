@@ -46,8 +46,6 @@ def encounters(num):
 
 
 def WormRoom1_1():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('The room you enter is dimly lit by a single torch. Through the edge of your vision, you see a humongous worm on the other side waiting to devour you.')
     #Event
@@ -57,8 +55,6 @@ def WormRoom1_1():
     gold =+ 20
 
 def PitRoom1_2():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('You open the door, and instinctively take a step forward, and feel nothing underneath you.')
     #Event
@@ -71,8 +67,6 @@ def PitRoom1_2():
     gold =+ 20
 
 def GoblinRoom2_1():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('As you enter into the next room, you see small figures darting around in the dark. You have been ambushed by goblins!')
     #Event
@@ -87,8 +81,6 @@ def GoblinRoom2_1():
     gold =- 20
 
 def BanditRoom2_2():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('You hear voices in the next room. Slowly opening the door, you see it is a group of bandits, huddled around a fire.)
     #Event
@@ -102,8 +94,6 @@ def BanditRoom2_2():
     global gold
     gold =+ 20
 def PoisonRoom2_2():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('You enter the next room, and are immediately hit with a strong odor. The room is filled with poisonous gas!)
     #Event
@@ -114,8 +104,6 @@ def PoisonRoom2_2():
     #Outcome
 
 def CultistRoom3_1():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('The room you enter has a strange hooded figure. He offers you safe passage in exchange for participating in his ritual.)
     #Event
@@ -127,8 +115,6 @@ def CultistRoom3_1():
     #Outcome
 
 def MerchantRoom3_2():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('The room you enter has a strange hooded figure. He appears to be a traveling merchant, offering you his wares.')
     #Event
@@ -140,8 +126,6 @@ def MerchantRoom3_2():
     #Outcome  
     
 def OrcRoom4_1():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('The room you enter has a tough-looking orc guarding the next door.')
     #Event
@@ -153,8 +137,6 @@ def OrcRoom4_1():
     #Outcome  
   
 def BoulderRoom4_2():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('You open the door and are immediately greeted with a massive boulder blocking your way!')
     #Event
@@ -166,12 +148,10 @@ def BoulderRoom4_2():
     #Outcome  
 
 def TreasureRoom5_1():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('You enter a large room filled with gold and treasure, a menacing fire dragon sleeps atop his trove.')
     #Event
-    print('What would you like to do? 1. Initiate Combat (Bad Idea), 2. Steal Tresaure. (Dexterity)')
+    print('What would you like to do? 1. Initiate Combat (Bad Idea), 2. Steal Treasure. (Dexterity)')
     #Choice 1 - Initiate Combat
     print('You unsheathe your weapon and the dragon immediately burns you alive. Did you think that was a good idea?')
     #Choice 2 - Dexterity Check
@@ -179,8 +159,6 @@ def TreasureRoom5_1():
     #Outcome  
 
 def MageRoom5_2():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('You open the door, and surprise a mage conducting a ritual. She immediately readies herself for combat.')
     #Event
@@ -192,8 +170,6 @@ def MageRoom5_2():
     #Outcome  
 
 def DemonRoom6_1():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('You enter a pitch black room, you hear strange whispering around you. You have been ambushed by a demon!')
     #Event
@@ -201,12 +177,10 @@ def DemonRoom6_1():
     #Choice 1 - Initiate Combat
     print('You unsheathe your weapon and prepare yourself for a fight.')
     #Choice 2 - Vitality Check
-    print('Vitality check success!. You perform an excorcism ritual, leaving you drained, but alive.')
+    print('Vitality check success!. You perform an excorcism ritual, leaving you drained, but unharmed.')
     #Outcome  
 
 def LavaRoom6_2():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('You enter the room, and the floor is literally lava!')
     #Event
@@ -217,8 +191,6 @@ def LavaRoom6_2():
     #Outcome  
 
 def WaterRoom7_1():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('You enter the room, filled with muddy water. Beneath the surface, you see a 50 foot catfish, who seems to be waiting for you to enter the water.')
     #Event
@@ -229,20 +201,16 @@ def WaterRoom7_1():
     #Outcome
 
 def SnakeRoom7_2():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('You look into the room, and it is full of SNAKES! The top 10 most venomous snakes mixed together floor to ceiling. One senses you and slithers towards you. The rest all begin to look towards you.)
     #Event
     #Choice 1 - Dexterity Check
-    print('Dexteriry check success! You put them into a trance and they are all dancing. You can escape this time.')
+    print('Dexterity check success! You put them into a trance and they are all dancing. You can escape this time.')
     #Choice 2 - Bad End
     print('Dexterity check failed! The snakes bite you, and deals some damage.')
     #Outcome
 
 def BounceRoom8_1():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('You step into the room and are launched head first into a wall.)
     #Event
@@ -253,14 +221,8 @@ def BounceRoom8_1():
     #Outcome
 
 def BossRoom():
-  state = 'incomplete'
-  if state == 'incomplete':
     #Description
     print('You enter the final room to face your sworn enemy: a giant rat!')
     #Event
-    print('What would you like to do? 1. Initiate Combat, 2. Bribe Enemy. (40 Gold)')
-    #Choice 1 - Initiate Combat
     print('You unsheathe your weapon and prepare yourself for the final battle.')
-    #Choice 2 - Bribe
-    print('IDK.')
     #Outcome  

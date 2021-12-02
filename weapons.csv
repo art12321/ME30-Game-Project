@@ -1,7 +1,9 @@
-weaponName,stats
-longsword,0000
-longbow,0000
-dagger,0000
-club,0000
-mace,0000
-axe,0000
+weaponName,stats,damagemult,attribmod,cost
+longsword,0325
+longbow,0225
+dagger,0135
+club,0135
+mace,0225
+axe,0325
+weaponBase,damage
+fist,0000

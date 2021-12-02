@@ -17,6 +17,8 @@ playerPos = cf.position(cf.playerStartPos_x,cf.playerStartPos_y)
 playerPos = cf.map.adjustMapPos(cf.map1)
 directionSelectionMode = 1
 while directionSelectionMode == 1:
+  if cf.map1[playerPos.x][playerPos.y] == "17":
+    directionSelectionMode = 0
   playerInput = str.lower(input("which direction do you want to go...? "))
   if playerInput == "west" or playerInput == "w":
     playerPos = playerPos.addMove(cf.west)
@@ -61,7 +63,7 @@ while directionSelectionMode == 1:
     print('not valid movement')
   
 #halfway point
-import store
+#import store
 
-
-print('As you reach the end of the cave, you look over your remaining loot. It looks like you escaped with {0} gold.'.format(player1.goldValue))
+print()
+print('As you reach the end of the cave, you look over your remaining loot. It looks like you escaped with {0} gold.'.format(charCreate.player1.goldValue))

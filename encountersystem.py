@@ -193,6 +193,8 @@ def B1():
     #Event
     print('You unsheathe your weapon and prepare yourself for the final battle.')
     #Outcome  
+    directionSelectionMode = 0
+    return directionSelectionMode
 
 #def W1():
 #  pass

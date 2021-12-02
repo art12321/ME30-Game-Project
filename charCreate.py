@@ -1,5 +1,6 @@
 import time
 import csv
+import classFramework as cf
 
 
 delay = 0.5
@@ -34,8 +35,10 @@ weaponString = ', '.join(weaponList)
 print(
     'You wake up in a cave with a throbbing headache. You look up up to see a hole. You decide that must be how you got here. After standing up, you realize that you can\'t remember anything.'
 )
+print()
 time.sleep(delay)
 print('You look down at yourself and realize, "Oh I must be a..."')
+print()
 time.sleep(delay)
 sholder = ''
 wholder = ''
@@ -49,9 +52,11 @@ while sholder != 'chosen':
         print('{0} is unacceptable'.format(race))
 print('"I must be a {0}"'.format(race))
 time.sleep(delay)
+print()
 print(
     "You see a stack of weapons on the ground next to you, but can\'t remember which one was yours."
 )
+print()
 time.sleep(delay)
 while wholder != 'chosen':
     weapon = str.lower(input('Choose your weapon: {0}: '.format(weaponString)))
@@ -62,12 +67,16 @@ while wholder != 'chosen':
     else:
         print('{0} is not acceptable, please try again'.format(weapon))
 print('"Ah yes, this one is mine" You say as you pick up your {0} from the pile.'.format(weapon))
+print()
+
 
 
 str = Stats[0]
 dex = Stats[1]
 vit = Stats[2]
+weapName = wStats[0]
 
+player1 = cf.state(100,str,vit,dex,cf.position(0,0),0,weapName)
 
 #strength = effectiveness of wholder
 #dexterity = dodge chance and attack order in batle

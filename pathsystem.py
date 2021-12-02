@@ -1,4 +1,4 @@
-
+####NOT USED 
 #maybe this is the nav system?
 #maybe use a list like from the classwork:
 # ([0,0,0,0,0],
@@ -49,6 +49,7 @@ map2 = ([0,0,0,0,0,0,0,0,0,0], #does not work because even # of rows and columns
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0])
+        
 
 """
 #testcode

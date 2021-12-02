@@ -86,8 +86,10 @@ class item:
 
 class encounterState:
   """Placehold for potential encounters class"""
-  def __init__(self,enVal):
-    self.enVal = enVal
+  def __init__(self,encName,encState,encNumber):
+    self.encName = encName
+    self.encState = encState
+    self.encNumber = encNumber
     
   def __str__(self):
     return "An Encounter is taking place!"
@@ -103,9 +105,10 @@ def battle(char1,char2): #these should be two state class objects, char1=player?
   while endstate == 0: #while endstate == 0, the battle will continue.
     #maybe a print statement with stats
     print("What do you want to do? (Attack is the only option.)")
-    userinput = input("input:") #ask for input, impliment lower()
+    userinput = input("input:") #asks for input, implement lower()
     if userinput == "attack":
       state.stateDif()
+      endstate += state.stateDif
       return
       #When the returned value is negative, the enemy is given "health". Print("looks like that did nothing...im screwed.")" 
     #if userinput == "flee":#placeholder
@@ -116,10 +119,36 @@ def battle(char1,char2): #these should be two state class objects, char1=player?
 #Command initialize
 west = position(0,-1)
 east = position(0,1)
-north = position(1,0)
-south = position(-1,0)
+north = position(-1,0)
+south = position(1,0)
+playerStartPos_x = 0
+playerStartPos_y = 0
 
-map1 = ([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],
+map1 = ([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1], #testmap
+        [-1,-1,-1,"8","7","7",-1,-1,0,0,-1],
+        [-1,-1,"10","9","5","6",-1,0,0,0,-1],
+        [-1,"12","11",-1,"3","4",-1,0,0,0,-1],
+        [-1,"13",-1,-1,-1,"1","2",-1,0,0,-1],
+        [-1,"14","15","17",-1,"0",-1,0,0,0,-1],
+        [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],
+        [-1,0,0,0,0,0,0,0,0,0,-1],
+        [-1,0,0,0,0,0,0,0,0,0,-1],
+        [-1,0,0,0,0,0,0,0,0,0,-1],
+        [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1])
+
+map3 = ([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1], #testmap
+        [-1,0,0,0,0,0,0,0,0,0,-1],
+        [-1,0,0,0,0,0,0,0,0,0,-1],
+        [-1,0,0,0,0,0,0,0,0,0,-1],
+        [-1,0,0,0,2,0,0,0,0,0,-1],
+        [-1,0,8,4,2,"S",0,0,0,0,-1],
+        [-1,0,0,0,0,0,0,0,0,0,-1],
+        [-1,0,0,0,0,0,0,0,0,0,-1],
+        [-1,0,0,0,0,0,0,0,0,0,-1],
+        [-1,0,0,0,0,0,0,0,0,0,-1],
+        [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1])
+
+map2 = ([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1], #largermap Placehold
         [-1,0,0,0,0,0,0,0,0,0,-1],
         [-1,0,0,0,0,0,0,0,0,0,-1],
         [-1,0,0,0,0,0,0,0,0,0,-1],

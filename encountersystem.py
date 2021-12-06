@@ -1,4 +1,5 @@
-
+import classFramework as cf
+import charCreate as cc
 #Evan was thinking that this could be a list of rooms we can call from.
 
 #roomNum/eventNum
@@ -6,7 +7,26 @@
 #descriptionOfEvent (enemy, pit, nothing,boss)
 #example room
 
-
+# I think this will be where we will store active player and enemy health
+player1 = cc.player1
+goblin1 = cc.baseGoblin
+goblin2 = cc.baseGoblin
+goblin3 = cc.baseGoblin
+goblin4 = cc.baseGoblin
+goblin5 = cc.baseGoblin
+goblin6 = cc.baseGoblin
+goblin7 = cc.baseGoblin
+goblin8 = cc.baseGoblin
+goblin9 = cc.baseGoblin
+goblin10 = cc.baseGoblin
+goblin11 = cc.baseGoblin
+goblin12 = cc.baseGoblin
+goblin13 = cc.baseGoblin
+goblin14 = cc.baseGoblin
+goblin15 = cc.baseGoblin
+goblin16 = cc.baseGoblin
+goblin17 = cc.baseGoblin
+boss = cc.baseBoss
 
 
 def R1(): #WormRoom
@@ -14,6 +34,10 @@ def R1(): #WormRoom
     print('The room you enter is dimly lit by a single torch. Through the edge of your vision, you see a humongous worm on the other side waiting to devour you.')
     #Event
     print('It takes one look at you, screams and then slithers away. You look around and found 20 gold coins!')
+    #testFight
+    print("testCode: (comment out to test other stuff.)")
+    cf.battle(player1,goblin1)
+
     #Outcome
     global gold
     gold =+ 20

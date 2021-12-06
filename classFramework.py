@@ -43,17 +43,19 @@ class position: #Works!
 
 class state:
   """current state of a charater and environment"""
-  def __init__(self, health, attack, defense, speed, currentPos, goldValue, weapon):
-    self.health = health # health = vit*10 
-    self.attack = attack # attack = baseS + weapDMG + mods
-    self.defense = defense # def = 
-    self.speed = speed # speed = dex*mod
+  def __init__(self, health, attack, defense, speed, currentPos, goldValue, weapon, name):
+    self.health = int(health) # health = vit*10 
+    self.attack = int(attack) # attack = baseS + weapDMG + mods
+    self.defense = int(defense) # def = 
+    self.speed = int(speed) # speed = dex*mod
     self.currentPos = currentPos
-    self.goldValue = goldValue
+    self.goldValue = int(goldValue)
     self.weapon = weapon
+    self.name = name
 
   def __str__(self):
-      return str(self.health) + " health points " + str(self.attack) + " attack points " + str(self.defense) + " defense points " + str(self.speed) + " speed points " + " is at position " + str(self.curPos) + " and has gold " + str(self.goldValue)
+      return self
+      #str(self.health) + " health points " + str(self.attack) + " attack points " + str(self.defense) + " defense points " + str(self.speed) + " speed points " + " and has gold " + str(self.goldValue)
 
   def stateCompare(self, stateType): #needs a pointer to which Characters its using.
     """This is a comparison tool for battles, compare speed"""
@@ -67,8 +69,8 @@ class state:
 
 def stateDif(stateType1, stateType2): #This works but is outside of the state class. involves 
   """This is a comparison tool for battles, diff math, Damage = attack - defense. Example: player1 = state(100,7,5,3,5,4,4);enemy = state(100,10,10,10,10,10,10),print(stateDif(player1.attack,enemy.defense));output = -3"""
-  value1 = stateType1 #get char1 value for stateType
-  value2 = stateType2 #get char2 value for stateType
+  value1 = int(stateType1) #get char1 value for stateType
+  value2 = int(stateType2) #get char2 value for stateType
   damage = value1 - value2 
   return  damage #returns damage somehow
 
@@ -107,9 +109,26 @@ def battle(char1,char2): #these should be two state class objects, char1=player?
     print("What do you want to do? (Attack is the only option.)")
     userinput = input("input:") #asks for input, implement lower()
     if userinput == "attack":
-      state.stateDif()
-      endstate += state.stateDif
-      return
+      currentDamage12 = stateDif(char1.attack,char2.defense)
+      if currentDamage12 <= 0:
+        currentDamage12 = 0
+      print('{0} swings their {1} and does {2} Damage to {3}'.format(char1.name,char1.weapon,currentDamage12, char2.name))
+      char2.health -= currentDamage12
+      if char2.health <= 0:
+        print()
+        print(char2.name + " has been killed. Moving on...")
+        endstate += 1
+        return
+      currentDamage21 = stateDif(char2.attack,char1.defense)
+      if currentDamage21 <= 0:
+        currentDamage21 = 0
+      print('{0} swings their {1} and does {2} Damage to {3}'.format(str(char2.name),char2.weapon,currentDamage21, str(char1.name)))
+      char1.health -= currentDamage21
+      if char1.health <= 0:
+        print()
+        print(char1.name + " has been killed. GAME OVER!")
+        endstate += 1
+        return
       #When the returned value is negative, the enemy is given "health". Print("looks like that did nothing...im screwed.")" 
     #if userinput == "flee":#placeholder
      # return

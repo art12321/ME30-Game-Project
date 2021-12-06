@@ -1,11 +1,13 @@
 import time
 import classFramework as cf
-import charCreate
+import charCreate as cc
 import encountersystem as ecs
 #import store
 
-#delay = charCreate.delay
-#player1 = charCreate.player1
+#delay = cc.delay
+player1 = cc.player1
+goblin = cc.baseGoblin
+boss = cc.baseBoss
 #print(player1)
 
 #state class = (health,attack,defen,speed,currentpos,gold,weapon)
@@ -66,4 +68,4 @@ while directionSelectionMode == 1:
 #import store
 
 print()
-print('As you reach the end of the cave, you look over your remaining loot. It looks like you escaped with {0} gold.'.format(charCreate.player1.goldValue))
+print('As you reach the end of the cave, you look over your remaining loot. It looks like you escaped with {0} gold.'.format(cc.player1.goldValue))

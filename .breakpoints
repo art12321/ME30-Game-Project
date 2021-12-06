@@ -3,9 +3,9 @@
     "charCreate.py": [
       {
         "id": "c0ab7240-7de9-497e-a1f1-2d048d6ba38b",
-        "line": 84,
-        "version": 5010,
-        "index": 2331
+        "line": 99,
+        "version": 5464,
+        "index": 2963
       }
     ],
     "character.csv": [
@@ -19,9 +19,9 @@
     "classFramework.py": [
       {
         "id": "b0a60ca1-9e21-4f1f-89ff-7d666440a501",
-        "line": 144,
-        "version": 2366,
-        "index": 5686
+        "line": 148,
+        "version": 2684,
+        "index": 6052
       }
     ],
     "csv_import_test.py": [
@@ -35,15 +35,15 @@
     "encountersystem.py": [
       {
         "id": "6e3a2966-7f6f-4cbc-89fe-4eca677c490c",
-        "line": 7,
-        "version": 7053,
-        "index": 189
+        "line": 8,
+        "version": 7472,
+        "index": 240
       },
       {
         "id": "90bdb107-9633-4098-8599-e1aba691fc17",
-        "line": 85,
-        "version": 7053,
-        "index": 3379
+        "line": 109,
+        "version": 7472,
+        "index": 4064
       }
     ]
   }

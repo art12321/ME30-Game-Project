@@ -14,7 +14,7 @@ raceATT = []
 weaponList = []
 weaponATT = []
 
-#appending csv files to lists to compare for potential choices and get sholder
+#appending csv files to lists to compare for potential choices and get stats
 
 for col in raceing:
     raceList.append(col['raceName'])
@@ -23,7 +23,16 @@ for col in weaponing:
     weaponList.append(col['weaponName'])
     weaponATT.append(col['stats'])
 
-#making string to show all playable races and wholder
+#code for activating enemies 
+
+goblinStats = raceATT[raceList.index('goblin')]
+goblinWeapon = (weaponATT[weaponList.index('dagger')])
+goblinWeaponName = "dagger"
+bossStats = raceATT[raceList.index('finalboss')]
+bossWeapon = (weaponATT[weaponList.index('dagger')])
+bossWeaponName = "dagger"
+
+#making strings to show all playable races and weapons
 raceList.remove('finalboss')
 raceList.remove('goblin')
 weaponList.remove('weaponBase')
@@ -31,17 +40,24 @@ weaponList.remove('fist')
 raceString = ', '.join(raceList)
 weaponString = ', '.join(weaponList)
 
+# where what you actually see in game starts
 
 print(
-    'You wake up in a cave with a throbbing headache. You look up up to see a hole. You decide that must be how you got here. After standing up, you realize that you can\'t remember anything.'
+    'You wake up in a cave with a throbbing headache. You look up up to see a hole. You decide that must be how you got here. After standing up, you realize that you can\'t remember anything. Even My Name...'
 )
+print()
+time.sleep(delay)
+playerName = input("I think my name is: ")
 print()
 time.sleep(delay)
 print('You look down at yourself and realize, "Oh I must be a..."')
 print()
 time.sleep(delay)
-sholder = ''
+#placeholders for breaking character and weapon selection loops
+sholder = '' 
 wholder = ''
+
+#race selection loop
 while sholder != 'chosen':
     race = str.lower(input('Choose your type, {0}: '.format(raceString)))
     if race in raceList:
@@ -57,7 +73,9 @@ print(
     "You see a stack of weapons on the ground next to you, but can\'t remember which one was yours."
 )
 print()
+
 time.sleep(delay)
+#weapon selection loop
 while wholder != 'chosen':
     weapon = str.lower(input('Choose your weapon: {0}: '.format(weaponString)))
     if weapon in weaponList:
@@ -71,12 +89,14 @@ print()
 
 
 
-str = Stats[0]
-dex = Stats[1]
-vit = Stats[2]
+player1Str = Stats[0]
+player1Dex = Stats[1]
+player1Vit = Stats[2]
 weapName = wStats[0]
 
-player1 = cf.state(100,str,vit,dex,cf.position(0,0),0,weapName)
+player1 = cf.state((player1Vit*10),player1Str*10,player1Vit,player1Dex,cf.position(0,0),0,weapon, playerName)
+baseGoblin = cf.state((goblinStats[2]*5),goblinStats[0],goblinStats[2],goblinStats[1],cf.position(0,0),0,goblinWeaponName,"Goblin")
+baseBoss = cf.state((bossStats[2]*5),bossStats[0],bossStats[2],bossStats[1],cf.position(0,0),0,goblinWeaponName,"Boss Man")
 
 #strength = effectiveness of wholder
 #dexterity = dodge chance and attack order in batle

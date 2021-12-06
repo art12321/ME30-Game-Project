@@ -1,5 +1,6 @@
 import time
 import classFramework as cf
+import charCreate as cc
 
 
 def barkeeper():

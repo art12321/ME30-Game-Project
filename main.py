@@ -4,10 +4,10 @@ import charCreate as cc
 import encountersystem as ecs
 #import store
 
-#delay = cc.delay
-player1 = cc.player1
-goblin = cc.baseGoblin
-boss = cc.baseBoss
+delay = cc.delay
+#player1 = cc.player1
+#goblin = cc.baseGoblin
+#boss = cc.baseBoss
 #print(player1)
 
 #state class = (health,attack,defen,speed,currentpos,gold,weapon)
@@ -28,7 +28,14 @@ while directionSelectionMode == 1:
       print("Theres a wall to the west. Turning around...")
       playerPos = playerPos.addMove(cf.east)
     print("testcode: currentPos= " + str(playerPos) + str(cf.map1[playerPos.x][playerPos.y]))
-    ecs.encDic[int(cf.map1[playerPos.x][playerPos.y])]()
+    battlestate = ecs.encDic[int(cf.map1[playerPos.x][playerPos.y])]()
+    if battlestate == 1:
+      ecs.encStateDic[int(cf.map1[playerPos.x][playerPos.y])] = 1
+    if battlestate == 2:
+      playerPos = playerPos.addMove(cf.east)
+    if battlestate == 3:
+      print("you have died")
+      continue
     print()
     print()
 
@@ -38,7 +45,13 @@ while directionSelectionMode == 1:
       print("Theres a wall to the east. Turning around...")
       playerPos = playerPos.addMove(cf.west)
     print("testcode: currentPos= " + str(playerPos) + str(cf.map1[playerPos.x][playerPos.y]))
-    ecs.encDic[int(cf.map1[playerPos.x][playerPos.y])]()
+    battlestate = ecs.encDic[int(cf.map1[playerPos.x][playerPos.y])]()
+    if battlestate == 1:
+      ecs.encStateDic[int(cf.map1[playerPos.x][playerPos.y])] = 1
+    if battlestate == 2:
+      playerPos = playerPos.addMove(cf.west)
+    if battlestate == 3:
+      continue
     print()
     print()
 
@@ -48,7 +61,13 @@ while directionSelectionMode == 1:
       print("Theres a wall to the north. Turning around...")
       playerPos = playerPos.addMove(cf.south)
     print("testcode: currentPos= " + str(playerPos) + str(cf.map1[playerPos.x][playerPos.y]))
-    ecs.encDic[int(cf.map1[playerPos.x][playerPos.y])]()
+    battlestate = ecs.encDic[int(cf.map1[playerPos.x][playerPos.y])]()
+    if battlestate == 1:
+      ecs.encStateDic[int(cf.map1[playerPos.x][playerPos.y])] = 1
+    if battlestate == 2:
+      playerPos = playerPos.addMove(cf.south)
+    if battlestate == 3:
+      continue
     print()
     print()
 
@@ -58,7 +77,13 @@ while directionSelectionMode == 1:
       print("Theres a wall to the south. Turning around...")
       playerPos = playerPos.addMove(cf.north)
     print("testcode: currentPos= " + str(playerPos) + str(cf.map1[playerPos.x][playerPos.y]))
-    ecs.encDic[int(cf.map1[playerPos.x][playerPos.y])]()
+    battlestate = ecs.encDic[int(cf.map1[playerPos.x][playerPos.y])]()
+    if battlestate == 1:
+      ecs.encStateDic[int(cf.map1[playerPos.x][playerPos.y])] = 1
+    if battlestate == 2:
+      playerPos = playerPos.addMove(cf.north)
+    if battlestate == 3:
+      continue
     print()
     print()
   else:

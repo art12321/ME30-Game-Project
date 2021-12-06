@@ -43,19 +43,20 @@ class position: #Works!
 
 class state:
   """current state of a charater and environment"""
-  def __init__(self, health, attack, defense, speed, currentPos, goldValue, weapon, name):
-    self.health = int(health) # health = vit*10 
-    self.attack = int(attack) # attack = baseS + weapDMG + mods
-    self.defense = int(defense) # def = 
+  def __init__(self, health, strength, defense, speed, currentPos, goldValue, weaponName, name,weaponMulti):
+    self.health = float(health) # health = vit*10 
+    self.attack = float(float(weaponMulti)*float(strength)) # attack = baseS + weapDMG + mods
+    self.strength = float(strength)
+    self.defense = float(defense) # def = 
     self.speed = int(speed) # speed = dex*mod
     self.currentPos = currentPos
     self.goldValue = int(goldValue)
-    self.weapon = weapon
+    self.weaponName = weaponName
     self.name = name
+    self.weaponMulti = float(weaponMulti)
 
   def __str__(self):
-      return self
-      #str(self.health) + " health points " + str(self.attack) + " attack points " + str(self.defense) + " defense points " + str(self.speed) + " speed points " + " and has gold " + str(self.goldValue)
+      return '{0} has {1} health points, a modified attack of {2}, defense of {3}, speed of {4}, {5} gold pieces. {0}\'s weapon, a {6}, has a multiplier of {7}'.format(str(self.name),str(self.health),str(self.attack),str(self.defense),str(self.speed),str(self.goldValue),str(self.weaponName),str(self.weaponMulti))
 
   def stateCompare(self, stateType): #needs a pointer to which Characters its using.
     """This is a comparison tool for battles, compare speed"""
@@ -106,32 +107,37 @@ def battle(char1,char2): #these should be two state class objects, char1=player?
   endstate = 0
   while endstate == 0: #while endstate == 0, the battle will continue.
     #maybe a print statement with stats
-    print("What do you want to do? (Attack is the only option.)")
+    print("What do you want to do? (Attack and Flee are the only options.)")
     userinput = input("input:") #asks for input, implement lower()
-    if userinput == "attack":
+    if userinput == "attack" or userinput == "a":
+      print('{0}\'s health is:{1}'.format(char1.name,char1.health,char2.name,char2.health))
+      print('{0}\'s health is:{1}'.format(char2.name,char2.health))
       currentDamage12 = stateDif(char1.attack,char2.defense)
-      if currentDamage12 <= 0:
+      if currentDamage12 <= 0: #When the returned value is negative, the enemy is given "health"." 
         currentDamage12 = 0
-      print('{0} swings their {1} and does {2} Damage to {3}'.format(char1.name,char1.weapon,currentDamage12, char2.name))
+      print('{0} swings their {1} and does {2} Damage to {3}'.format(char1.name,char1.weaponName,currentDamage12, char2.name))
       char2.health -= currentDamage12
       if char2.health <= 0:
         print()
         print(char2.name + " has been killed. Moving on...")
         endstate += 1
-        return
+        return 1
       currentDamage21 = stateDif(char2.attack,char1.defense)
       if currentDamage21 <= 0:
         currentDamage21 = 0
-      print('{0} swings their {1} and does {2} Damage to {3}'.format(str(char2.name),char2.weapon,currentDamage21, str(char1.name)))
+      print('{0} swings their {1} and does {2} Damage to {3}'.format(str(char2.name),char2.weaponName,currentDamage21, str(char1.name)))
+      if currentDamage21 == 0:
+        print('{0} says: Looks like that did nothing...im screwed.'.format(char2.name))
       char1.health -= currentDamage21
       if char1.health <= 0:
         print()
-        print(char1.name + " has been killed. GAME OVER!")
+        print(char1.name + " has been killed. GAME OVER!") 
         endstate += 1
-        return
-      #When the returned value is negative, the enemy is given "health". Print("looks like that did nothing...im screwed.")" 
-    #if userinput == "flee":#placeholder
-     # return
+        return 3
+    if userinput == "flee":
+      print('{0} runs away because they are scared...'.format(char1.name))
+      endstate += 2
+      return 2
     #if userinput == "items": #placeholder
      # return
 

@@ -7,8 +7,8 @@ import charCreate as cc
 #descriptionOfEvent (enemy, pit, nothing,boss)
 #example room
 
-# I think this will be where we will store active player and enemy health
-player1 = cc.player1
+# I think this will be where we will store active player and enemy states
+player1 = cc.charactercreation()
 goblin1 = cc.baseGoblin
 goblin2 = cc.baseGoblin
 goblin3 = cc.baseGoblin
@@ -30,19 +30,32 @@ boss = cc.baseBoss
 
 
 def R1(): #WormRoom
-    #Description
-    print('The room you enter is dimly lit by a single torch. Through the edge of your vision, you see a humongous worm on the other side waiting to devour you.')
-    #Event
-    print('It takes one look at you, screams and then slithers away. You look around and found 20 gold coins!')
-    #testFight
-    print("testCode: (comment out to test other stuff.)")
-    cf.battle(player1,goblin1)
-
+    #check room state
+    roomNum = 1
+    if encStateDic[roomNum] == 0: #This is a state check that looks if the room has been entered before.
+      #Description
+      print('The room you enter is dimly lit by a single torch. Through the edge of your vision, you see a humongous worm on the other side waiting to devour you.')
+      #Event
+      print('It takes one look at you, screams and then slithers away. You look around and found 20 gold coins!')
+      #testFight
+      print("testCode: (comment out to test other stuff.)")
+      endstate = cf.battle(player1,goblin1)
+      if endstate == 1:
+        print("Congrats!")
+        #encStateDic[roomNum] = 1
+        return 1 #battle won
+      elif endstate == 2:
+        return 2 #flee
+      else:
+        return 3 #game over
+    else: # this triggers if encStateDic[roomNum] != 0
+      print("a dead goblin lies dead...")
     #Outcome
-    global gold
-    gold =+ 20
+    player1.gold =+ 20
+
 
 def R2(): #PitRoom
+    roomNum = 2
     #Description
     print('You open the door, and instinctively take a step forward, and feel nothing underneath you.')
     #Event
@@ -55,6 +68,7 @@ def R2(): #PitRoom
     gold =+ 20
 
 def R3(): #GoblinRoom
+    roomNum = 3
     #Description
     print('As you enter into the next room, you see small figures darting around in the dark. You have been ambushed by goblins!')
     #Event
@@ -69,6 +83,7 @@ def R3(): #GoblinRoom
     gold =- 20
 
 def R4(): #BanditRoom
+    roomNum = 4
     #Description
     print('You hear voices in the next room. Slowly opening the door, you see it is a group of bandits, huddled around a fire.')
     #Event
@@ -82,8 +97,10 @@ def R4(): #BanditRoom
     #Outcome
     global gold
     gold =+ 20
-    
+
+ 
 def R5(): #GasRoom
+    roomNum = 5
     #Description
     print('You enter the next room, and are immediately hit with a strong odor. The room is filled with poisonous gas!')
     #Event
@@ -93,7 +110,9 @@ def R5(): #GasRoom
     print('Vitality check failed! You suffer damage from the gas.')
     #Outcome
 
+
 def R6(): #CultistRoom
+    roomNum = 6
     #Description
     print('The room you enter has a strange hooded figure. He offers you safe passage in exchange for participating in his ritual.')
     #Event
@@ -106,11 +125,14 @@ def R6(): #CultistRoom
     print('Vitality check success! You agree to the ritual, and make it through unscathed, albeit, disgusted.')
     #Outcome
 
+
 def R7(): #Shop
+    roomNum = 7
     import store as s
     #s.barkeeper()
 
 def R8(): #OrcRoom
+    roomNum = 8
     #Description
     print('The room you enter has a tough-looking orc guarding the next door.')
     #Event
@@ -122,8 +144,9 @@ def R8(): #OrcRoom
     #else:
     print('Dexterity check success! You effortlessly dodge past the orc and run past him. He cant fit through the door. How unfortunate.')
     #Outcome  
-  
+
 def R9(): #BoulderRoom
+    roomNum = 9
     #Description
     print('You open the door and are immediately greeted with a massive boulder blocking your way!')
     #Event
@@ -136,6 +159,7 @@ def R9(): #BoulderRoom
     #Outcome  
 
 def R10(): #TreasureRoom
+    roomNum = 10
     #Description
     print('You enter a large room filled with gold and treasure, a menacing fire dragon sleeps atop his trove.')
     #Event
@@ -145,9 +169,10 @@ def R10(): #TreasureRoom
     print('You unsheathe your weapon and the dragon immediately burns you alive. Did you think that was a good idea?')
     #Choice 2 - Dexterity Check
     print('Dexterity check success! You manage to steal some treasure and get away without waking up the dragon!')
-    #Outcome  
-
+    #Outcome
+  
 def R11(): #MageRoom
+    roomNum = 11
     #Description
     print('You open the door, and surprise a mage conducting a ritual. She immediately readies herself for combat.')
     #Event
@@ -160,6 +185,7 @@ def R11(): #MageRoom
     #Outcome  
 
 def R12(): #DemonRoom
+    roomNum = 12
     #Description
     print('You enter a pitch black room, you hear strange whispering around you. You have been ambushed by a demon!')
     #Event
@@ -172,6 +198,7 @@ def R12(): #DemonRoom
     #Outcome  
 
 def R13(): #LavaRoom
+    roomNum = 13
     #Description
     print('You enter the room, and the floor is literally lava!')
     #Event
@@ -182,6 +209,7 @@ def R13(): #LavaRoom
     #Outcome  
 
 def R14(): #WaterRoom
+    roomNum = 14
     #Description
     print('You enter the room, filled with muddy water. Beneath the surface, you see a 50 foot catfish, who seems to be waiting for you to enter the water.')
     #Event
@@ -192,6 +220,7 @@ def R14(): #WaterRoom
     #Outcome
 
 def R15(): #SnakeRoom
+    roomNum = 15
     #Description
     print('You look into the room, and it is full of SNAKES! The top 10 most venomous snakes mixed together floor to ceiling. One senses you and slithers towards you. The rest all begin to look towards you.')
     #Event
@@ -202,6 +231,7 @@ def R15(): #SnakeRoom
     #Outcome
 
 def R16(): #BounceRoom
+    roomNum = 16
     #Description
     print('You step into the room and are launched head first into a wall.')
     #Event
@@ -212,6 +242,7 @@ def R16(): #BounceRoom
     #Outcome
 
 def B1():
+    roomNum = 17
     #Description
     print('You enter the final room to face your sworn enemy: a giant rat!')
     #Event
@@ -228,6 +259,8 @@ def B1():
 #  return newPos
 
 def startRoom():
-  return print("welcome Back")
+  return print("Welcome Back, you are back where you started. How did that happen?")
+
+encStateDic = {0:0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0, 12: 0, 13: 0, 14: 0, 15: 0, 16: 0, 17:0}
 
 encDic = {1: R1, 2: R2, 3: R3, 4: R4, 5: R5, 6: R6, 7: R7, 8: R8, 9: R9, 10: R10, 11: R11, 12: R12, 13: R13, 14: R14, 15: R15, 16: R16, 17 : B1,0: startRoom} #-1: W1

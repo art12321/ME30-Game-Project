@@ -2,6 +2,22 @@ import time
 import classFramework as cf
 import charCreate as cc
 
+def shoprunthrough():
+  print('After finishing up at the bar, you decide to take some time and look around. There are crowded tables with lots going on around them. You see two other notable characters in the crowd, a goblin trader and a wizard')
+  shopstate = 0
+  while shopstate == 0:
+    currentshop = str.lower(input('Would you like to visit the Goblin Trader, Wizard, Barkeeper or continue on: '))
+    if currentshop =='goblin trader' or currentshop == 'goblin' or currentshop =='g':
+      goblintrader()
+    elif currentshop == 'wizard' or currentshop =='w':
+      wizard()
+    elif currentshop == 'barkeeper' or currentshop =='barkeep':
+      barkeeper()
+    elif currentshop == 'continue' or currentshop =='leave' or currentshop =='continue on':
+      print('Since you\'ve decided to leave the tavern you must continue back into the dark dingy cave to find your way out. ')
+      shopstate = 1
+    else:
+      print('You can\'t go to {0}'.format(currentshop))
 
 def barkeeper():
   #modifies health
@@ -22,20 +38,42 @@ def barkeeper():
 
 
 def goblintrader():
-    #weapon change
-    return (print('goblin'))
+  #weapon change store
+    print('You approach the goblin and he says...')
+    #not enough time to implement weapon change
+    #str.lower(input('"Welcome... I have plenty of wares for you to choose from. Would you like to choose a new weapon?"'))
+    print('I normally would have some new weapons for you but since my shipment has been delayed it would appear I have nothing to offer \n You walk away sadly.')
+    return
 
 
 def wizard():
-    #stat change
-    return (print('wizard'))
+  #print('You sit down in front of the wizard and he says \n "You have come to the right place. For a price I can make you faster, stronger or healthier "')
+  #yeanay = str.lower(input('Do you want to change your stats?(y/n)'))
+  #if yeanay == 'y' or yeanay == 'yes':
+  print('As you walk up the wizard says to you "I have not been feeling very magical lately. I seem to have no powers so I must send you somewhere else"')
+  return
 
+storestate = 0
+if storestate == 0:
+  print(
+      'As you enter this room you look around and see paneling and chairs. As you walk further, you start to hear music and then it dawns on you, you\'re in some sort of underground tavern. You decide to step in to take a break from everything else and maybe get a drink. You sit down at the bar and strike up a conversation with the bartender.')
+  barkeeper()
+  print('After finishing up at the bar, you decide to take some time and look around. There are crowded tables with lots going on around them. You see two other notable characters in the crowd, a goblin trader and a wizard')
+  sstate = 0
+  while sstate == 0:
+    loc = str.lower(input('Who would you like to talk to, the Goblin Trader or the Wizard: '))
+    if loc == 'wizard' or loc == 'w':
+      wizard()
+      sstate = 1
+    elif loc == 'goblin trader' or loc == 'goblin' or loc == 'g':
+      goblintrader()
+      sstate = 1
+    else:
+      print('You take one look at {0} and decide to go back on your decision. You decide to choose a different person'.format(loc))
+    shoprunthrough()
+  
 
-shoppos = 0  # counter of where in the shop code we are
-
-print(
-    'As you enter this room you look around and see paneling and chairs. As you walk further, you start to hear music and then it dawns on you, you\'re in some sort of underground tavern. You decide to step in to take a break from everything else and maybe get a drink. You sit down at the bar and strike up a conversation with the bartender.')
-barkeeper()
+    
 
 #implemet after the runthrogh
 # print('After finishing up at the bar, you decide to take some time and look around. There are crowded tables with lots going on around them. You see two other notable characters in the crowd, a goblin trader and a wizard')
@@ -65,4 +103,3 @@ barkeeper()
 
 
 #leaving the store
-print('Since you\'ve decided to leave the tavern you must continue back into the dark dingy cave to find your way out. ')

@@ -44,14 +44,14 @@ weaponString = ', '.join(weaponList)
 def charactercreation():
 
   print(
-      'You wake up in a cave with a throbbing headache. You look up up to see a hole. You decide that must be how you got here. After standing up, you realize that you can\'t remember anything. Even My Name...'
+      'You wake up in a cave with a throbbing headache. You look up up to see a hole. You decide that must be how you got here.\nAfter standing up, you realize that you can\'t remember anything. \nEven your own name... \nSuddenly, it comes to you.'
   )
   print()
   delay()
-  playerName = input("I think my name is: ")
+  playerName = input("Thats right, my name is: ")
   print()
   delay()
-  print('You look down at yourself and realize, "Oh I must be a..."')
+  print('You take a second to recuperate and examine yourself. Even though you can\'t remember what you are, you look down and, based off what you see, say, "Oh I must be a..."')
   print()
   delay()
   
@@ -92,15 +92,17 @@ def charactercreation():
   player1Dex = Stats[1]
   player1Vit = Stats[2]
   player1 = cf.state(int(player1Vit)*10,player1Str,player1Vit,player1Dex,cf.position(0,0),0,weapon, playerName, 1.5)
-  print(player1)
   return player1
 
 
-#weapon stats go here
 
-
-
+#Enemy Archtypes
 baseGoblin = cf.state(int(goblinStats[2]),goblinStats[0],goblinStats[2],goblinStats[1],cf.position(0,0),0,goblinWeaponName,"Goblin",1.5)
+baseBandit = cf.state(int(goblinStats[2]),goblinStats[0],goblinStats[2],goblinStats[1],cf.position(0,0),0,goblinWeaponName,"Bandits",1.5)
+baseCultist = cf.state(int(goblinStats[2]),goblinStats[0],goblinStats[2],goblinStats[1],cf.position(0,0),0,goblinWeaponName,"Cultist",1.5)
+baseOrc = cf.state(int(goblinStats[2]),goblinStats[0],goblinStats[2],goblinStats[1],cf.position(0,0),0,goblinWeaponName,"Orc",1.5)
+baseMage = cf.state(int(goblinStats[2]),goblinStats[0],goblinStats[2],goblinStats[1],cf.position(0,0),0,goblinWeaponName,"Mage",1.5)
+baseDemon = cf.state(int(goblinStats[2]),goblinStats[0],goblinStats[2],goblinStats[1],cf.position(0,0),0,goblinWeaponName,"Demon",1.5)
 baseBoss = cf.state(int(bossStats[2])*5,bossStats[0],bossStats[2],bossStats[1],cf.position(0,0),0,goblinWeaponName,"Boss Man",1.5)
 
 #strength = effectiveness of wholder

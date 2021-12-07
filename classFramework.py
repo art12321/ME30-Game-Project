@@ -1,13 +1,7 @@
-
-
 class map:
   """Map and position class"""
-  def __init__(self):
-    return
-  def __str__():
-    return
 
-  def centerPos(mapName): #Works!
+  def centerPos(mapName): 
     """Function finds the center of a map grid if odd. Map x,y needs to be odd to allow for a zero value."""
     if len(mapName)/2 == int(len(mapName)/2):
         return "map size incorrect"
@@ -16,7 +10,7 @@ class map:
         centerPointX = len(mapName[len(mapName)//2])//2
     return position(centerPointX, centerPointY)
   
-  def adjustMapPos(mapName): #Works!
+  def adjustMapPos(mapName): 
     """Function that adjusts player starting position to origin of a cartesian coordinate system (0,0). Example: playerStartPos = (0,0); """
     newStartPosX = map.centerPos(mapName).x
     newStartPosY = map.centerPos(mapName).y
@@ -24,7 +18,7 @@ class map:
     newStartPos = newStartPos.dirMove()
     return newStartPos
 
-class position: #Works!
+class position: 
   """Character Position Class"""
   def __init__(self, x, y):
     self.x = x
@@ -33,11 +27,11 @@ class position: #Works!
   def __str__(self):
     return "(" + str(self.x) + "," + str(self.y) + ")"
     
-  def addMove(self, changePos): #Works!
+  def addMove(self, changePos): 
     """Return the move as the sum of two points, returning a new point. Example: Example:playerPos=(0,0); west=(-1,0); newPlayerPos = playerPos.addMove(west); output:newPlayerPos=(-1,0)"""
     return position(self.x + changePos.x, self.y + changePos.y)
     
-  def dirMove(self): #Works!
+  def dirMove(self): 
     """Return the move as a teleport, returning a new point. Falls into a pit? Slides to the beginning. Example:playerPos=(0,0); newPlayerPos=(7,-5); playerPos=newPlayPos.dirMove()...might be redundant..."""
     return position(self.x, self.y)
 
@@ -75,31 +69,6 @@ def stateDif(stateType1, stateType2): #This works but is outside of the state cl
   damage = value1 - value2 
   return  damage #returns damage somehow
 
-class item:
-  """Perhaps this could act as a global inventory system"""
-  def __init__(self):
-    return
-
-  def item(self):
-    #get item info, can be picked up?
-    #ask for input, pickup... skip...
-    #add to inventory and remove from world
-    return
-
-
-class encounterState:
-  """Placehold for potential encounters class"""
-  def __init__(self,encName,encState,encNumber):
-    self.encName = encName
-    self.encState = encState
-    self.encNumber = encNumber
-    
-  def __str__(self):
-    return "An Encounter is taking place!"
-    
-  def room(self):
-    #get room info
-    return
 
 def battle(char1,char2): #these should be two state class objects, char1=player?
   """Takes the input from the state class object and reduces it down to comparisons. initates a pokemon style battle, gives player choices.  [Not sure if this needs to be a class yet, probably only needs to be a function.]"""
@@ -110,8 +79,8 @@ def battle(char1,char2): #these should be two state class objects, char1=player?
     print("What do you want to do? (Attack and Flee are the only options.)")
     userinput = input("input:") #asks for input, implement lower()
     if userinput == "attack" or userinput == "a":
-      print('{0}\'s health is:{1}'.format(char1.name,char1.health,char2.name,char2.health))
-      print('{0}\'s health is:{1}'.format(char2.name,char2.health))
+      print('{0}\'s health is: {1}'.format(char1.name,char1.health,char2.name,char2.health))
+      print('{0}\'s health is: {1}'.format(char2.name,char2.health))
       currentDamage12 = stateDif(char1.attack,char2.defense)
       if currentDamage12 <= 0: #When the returned value is negative, the enemy is given "health"." 
         currentDamage12 = 0
@@ -136,20 +105,23 @@ def battle(char1,char2): #these should be two state class objects, char1=player?
         return 3
     if userinput == "flee":
       print('{0} runs away because they are scared...'.format(char1.name))
+      print("You head back the way you came in.")
       endstate += 2
       return 2
     #if userinput == "items": #placeholder
      # return
 
 #Command initialize
+#Binds movement options.
 west = position(0,-1)
 east = position(0,1)
 north = position(-1,0)
 south = position(1,0)
+#Sets start position for the player.
 playerStartPos_x = 0
 playerStartPos_y = 0
 
-map1 = ([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1], #testmap
+map1 = ([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1], #Current map in use.
         [-1,-1,-1,"8","7","7",-1,-1,0,0,-1],
         [-1,-1,"10","9","5","6",-1,0,0,0,-1],
         [-1,"12","11",-1,"3","4",-1,0,0,0,-1],
@@ -161,7 +133,7 @@ map1 = ([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1], #testmap
         [-1,0,0,0,0,0,0,0,0,0,-1],
         [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1])
 
-map3 = ([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1], #testmap
+map3 = ([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1], #Test Map 1
         [-1,0,0,0,0,0,0,0,0,0,-1],
         [-1,0,0,0,0,0,0,0,0,0,-1],
         [-1,0,0,0,0,0,0,0,0,0,-1],
@@ -173,7 +145,7 @@ map3 = ([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1], #testmap
         [-1,0,0,0,0,0,0,0,0,0,-1],
         [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1])
 
-map2 = ([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1], #largermap Placehold
+map2 = ([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1], #Test Map 2
         [-1,0,0,0,0,0,0,0,0,0,-1],
         [-1,0,0,0,0,0,0,0,0,0,-1],
         [-1,0,0,0,0,0,0,0,0,0,-1],
@@ -184,66 +156,3 @@ map2 = ([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1], #largermap Placehold
         [-1,0,0,0,0,0,0,0,0,0,-1],
         [-1,0,0,0,0,0,0,0,0,0,-1],
         [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1])
-
-"""
-#initialize variables
-west = (-1,0)
-east = (1,0)
-north = (0,1)
-south = (0,-1)
-west = position(-1,0)
-east = position(1,0)
-north = position(0,1)
-south = position(0,-1)
-m = "m"
-b = "b"
-i = "i"
-playerStartPos_x = 0
-playerStartPos_y = 0
-playerPos = position(playerStartPos_x,playerStartPos_y)
-
-map1 = ([0,0,0,0,0,0,0,0,B,0,0], #does work because odd # of rows and columns
-        [0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,2,0,0,0,0,0,0],
-        [0,0,0,0,1,1,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0])
-map2 = ([0,0,0,0,0,0,0,0,0,0], #does not work because even # of rows and columns
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0])
-
-#testcode
-print(len(map1)) #result: 11
-print(len(map1)/2) #result: 5.5
-print((len(map2)/2)// 1) #result: 5.0 
-print(round(len(map1)/2)) #in this case map 1 would work with the position adjust function because it is odd.
-print(len(map2)) #result: 10
-print(len(map2)/2)  #result: 5.0
-print((len(map2)/2)// 1)  #result: 5.0
-print(round(len(map2)/2)) #in this case map 2 would not work with the position adjust function because it needs to be odd.
-cmap1 = map.centerPos(map1)
-print(cmap1) #result: (5,5)
-print(map1[5]) #result: [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
-print(map1[5][5]) #result: 1
-playerCenterStartPosition = map.adjustMapPos(map1)
-print(playerCenterStartPosition) 
-
-playerPos = map.adjustMapPos(map1)
-print(playerPos)
-print("RoomValue = " + str(map1[playerPos.x][playerPos.y]))
-playerPos = playerPos.addMove(west)
-print(playerPos)
-
-"""
